@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS 355 Assignment2</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+   <!-- NAVBAR BEGINS HERE-->
+   <nav id="navbar">
+     <ul>
+       <li class="dropdown">
+         <a href="index.html" class="dropbtn">Home</a>
+         <div class ="dropdown-content">
+         </div>
+       </li>
+       <li class="dropdown">
+         <a href="#" class="dropbtn">Course</a>
+         <div class="dropdown-content">
+           <a href="https://tophat.com/" target="_blank">TopHat</a>
+           <a href="https://tinyurl.com/CSCI355-Summer2021" target="_blank">Course Google Drive</a>
+           <a href="https://www.w3schools.com/" target="_blank">W3Schools</a>
+         </div>
+       </li>
+       <li class="dropdown">
+         <a href="#" class="dropbtn">About</a>
+         <div class="dropdown-content">
+           <a href="developer.html">About The Developer</a>
+           <a href="contact.html">Contact</a>
+         </div>
+	   
+       </li>  
+		<li class="inf">
+         <a class="dropbtn">email<?php echo "123" ?></a>
+       </li>
+	   
+      </ul>
+   </nav>
+   
+   <h1>URL-shortener Tool</h1>
+   
+   <div class="mainarea">
+	   <form id="shortenForm" action="urlstorage.php" method="POST">
+			<div class="textboxForm">
+				<input type="text" class="textbox" name= "urloriginal" id="url" placeholder="Enter a URL: "><br>							
+			</div>
+			<div class="textboxForm">
+				<input type="text" class="textbox" name= "urlshortened" id="urlout" placeholder="Use generate to get your shortened url or enter it by yourself:" value=""><br>
+			</div>
+			<button type="button" name="generate" onclick="myFunction()">Generate</button><br>
+			<button type="submit" name="save" >Save</button><br>
+			<button type="submit" id="reportbutton" name="report" >Click to obtain your report</button><br>
+	   </form>
+   </div>
+   <script>
+	function myFunction(){		
+		var n = 8;
+		var output = "";
+		var i = 0;
+		while(i < n){
+			var num = Math.floor(Math.random()*128);
+			if((num >= 48 && num <= 57)||(num >= 65 && num <= 90)||(num >= 97 && num <= 122)){
+				output += String.fromCharCode(num);
+				i++;
+			} 
+		}
+		document.getElementById("urlout").value=output;
+	}
+	</script>
+</body>
+</html>
